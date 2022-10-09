@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>huochetoumiandenglu</id>
+<name>Z-Blog火车头免登录入库插件</name>
+<url></url>
+<note>Z-Blog火车采集器免登录入库插件，支持评论入库，支持最新1.7版</note>
+<description></description>
+<path>main.php</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>雅爱</name>
+  <email>mmaisp@sina.com</email>
+  <url>http://yaaibk.com</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>151935</adapted>
+<version>3.3</version>
+<pubdate>2020-02-16</pubdate>
+<modified>2022-10-09</modified>
+<price>0</price>
+<phpver>5.2</phpver>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <existsfunctions></existsfunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+  <sidebar6></sidebar6>
+  <sidebar7></sidebar7>
+  <sidebar8></sidebar8>
+  <sidebar9></sidebar9>
+</sidebars>
+</plugin>

@@ -1,0 +1,133 @@
+Z-Blog免登录采集插件+发布评论例子PHP版
+
+Z-Blog免登录采集采集发布文章+发布评论例子_PHP版，希望通过这个例子帮到大家，大家可以试一试，看看效果，推荐阅读之前文章
+
+Z-Blog火车头发布模块
+
+Z-Blog免登录发布插件_雅爱笔记
+
+Z-Blog免登录采集发布评论教程
+
+把文件放到网站跟目录，把域名改成你的访问即可，访问后会生成一条文章数据，有几条评论。效果如下
+
+雅爱笔记_www.5devip.com
+
+代码如下：
+
+
+<?php
+/*
+*把文件放到网站跟目录，把域名改成你的访问即可，访问后会生成一条文章数据，有几条评论
+*免登陆发布文章+发布评论
+*雅爱笔记 www.5devip.com 
+*QQ 1334588325
+*QQ群 953418367
+*/
+header("Content-Type:text/html;charset=UTF-8");
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+date_default_timezone_set('Asia/Shanghai');
+$url='http://你的域名/zb_users/plugin/huochetoumiandenglu/fabu_api.php';
+//发布到文章的内容
+$a=array(
+	'ruku_password'=>'www.ccvok.com',// 改成你的 入库免登录密码
+	'ID'=>'',
+	'CateID'=>'1', 
+	'Tag'=>'',
+	'Type'=>'0',
+	'Title'=>'标题', 
+	'Intro'=>'简介简介', 
+	'Content'=>'详细内容详细内容',
+);
+//下面是评论
+$b=array(
+	'IsChecking'=>'0',//审核评论,1为审核 0为公开，如果后台设置禁止评论，此标签无效
+	'RootID'=>'0',//默认为0，当评论有回复时记录评论的ID 
+	'ParentID'=>'0',//默认为0，当评论别人的评论时记录别人的评论的ID，即上层ID
+	'AuthorID'=>'0',
+	'Name'=>'BBBBB', 
+	'Email'=>'1334588325@qq.com', 
+	'HomePage'=>'https://www.ccvok.com/', 
+	'Content'=>'内容：雅爱笔记',
+);
+$c=array(
+	'IsChecking'=>'0',
+	'RootID'=>'1',
+	'ParentID'=>'0',
+	'AuthorID'=>'0',
+	'Name'=>'CCCCC',
+	'Email'=>'1334588325@qq.com',
+	'HomePage'=>'https://www.ccvok.com/',
+	'Content'=>'内容：雅爱笔记',
+);
+$d=array(
+	'IsChecking'=>'0',
+	'RootID'=>'2',
+	'ParentID'=>'1',
+	'AuthorID'=>'0',
+	'Name'=>'DDDDD',
+	'Email'=>'1334588325@qq.com',
+	'HomePage'=>'https://www.ccvok.com/',
+	'Content'=>'内容：雅爱笔记',
+);
+$e=array(
+	'IsChecking'=>'0',
+	'RootID'=>'3',
+	'ParentID'=>'2',
+	'AuthorID'=>'0',
+	'Name'=>'EEEEE',
+	'Email'=>'1334588325@qq.com',
+	'HomePage'=>'https://www.ccvok.com/',
+	'Content'=>'内容：雅爱笔记',
+);
+$f=array(
+	'IsChecking'=>'0',
+	'RootID'=>'4',
+	'ParentID'=>'0',
+	'AuthorID'=>'0',
+	'Name'=>'FFFFF',
+	'Email'=>'1334588325@qq.com',
+	'HomePage'=>'https://www.ccvok.com/',
+	'Content'=>'内容：雅爱笔记',
+);
+$g=array(
+	'IsChecking'=>'0',
+	'RootID'=>'0',
+	'ParentID'=>'0',
+	'AuthorID'=>'0',
+	'Name'=>'GGGGG',
+	'Email'=>'1334588325@qq.com',
+	'HomePage'=>'https://www.ccvok.com/',
+	'Content'=>'内容：雅爱笔记',
+);
+$h=array(
+	'IsChecking'=>'0',
+	'RootID'=>'0',
+	'ParentID'=>'0',
+	'AuthorID'=>'0',
+	'Name'=>'HHHHH',
+	'Email'=>'1334588325@qq.com',
+	'HomePage'=>'https://www.ccvok.com/',
+	'Content'=>'内容：雅爱笔记',
+);
+$k=array(
+	'IsChecking'=>'0',
+	'RootID'=>'1',
+	'ParentID'=>'0',
+	'AuthorID'=>'0',
+	'Name'=>'KKKKK',
+	'Email'=>'1334588325@qq.com',
+	'HomePage'=>'https://www.ccvok.com/',
+	'Content'=>'内容：雅爱笔记',
+);
+$s=array($b,$c,$d,$e,$f,$g,$h,$k);
+$a['pinglun'] = json_encode($s);
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_HEADER, 0);
+curl_setopt($curl, CURLOPT_POST, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $a);
+curl_setopt($curl, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36');
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 0);
+curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+$d=curl_exec($curl);
+curl_close($curl);
+?>
